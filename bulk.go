@@ -190,6 +190,9 @@ func (s *BulkService) Do() (*BulkResponse, error) {
 	// Get response
 	res, err := s.client.PerformRequest("POST", path, params, body)
 	if err != nil {
+		if _, ok := err.(*BadRequestError); ok {
+			s.reset()
+		}
 		return nil, err
 	}
 

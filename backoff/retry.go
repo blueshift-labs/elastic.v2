@@ -30,18 +30,23 @@ func Retry(o Operation, b Backoff) error { return RetryNotify(o, b, nil) }
 
 // RetryNotify calls notify function with the error and wait duration
 // for each failed attempt before sleep.
-func RetryNotify(operation Operation, b Backoff, notify Notify) error {
-	var err error
+func RetryNotify(operation Operation, b Backoff, notify Notify) (err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			return
+		}
+	}()
+
 	var next time.Duration
 
 	b.Reset()
 	for {
 		if err = operation(); err == nil {
-			return nil
+			return
 		}
 
 		if next = b.Next(); next == Stop {
-			return err
+			return
 		}
 
 		if notify != nil {
