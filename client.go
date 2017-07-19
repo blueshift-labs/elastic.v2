@@ -134,6 +134,13 @@ type Client struct {
 	gzipEnabled               bool          // gzip compression enabled or disabled (default)
 }
 
+func (c *Client) SetDowntime(downtime time.Duration) {
+	c.connsMu.Lock()
+	defer c.connsMu.Unlock()
+
+	<-time.After(downtime)
+}
+
 // NewClient creates a new client to work with Elasticsearch.
 //
 // NewClient, by default, is meant to be long-lived and shared across
