@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"gopkg.in/olivere/elastic.v2/uritemplates"
+	"github.com/blueshift-labs/elastic.v2/uritemplates"
 )
 
 // PutTemplateService creates or updates a search template.

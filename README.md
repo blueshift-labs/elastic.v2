@@ -33,7 +33,7 @@ $ go get gopkg.in/olivere/elastic.v2
 You then import it with this import path:
 
 ```go
-import "gopkg.in/olivere/elastic.v2"
+import "github.com/blueshift-labs/elastic.v2"
 ```
 
 

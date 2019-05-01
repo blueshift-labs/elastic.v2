@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"gopkg.in/olivere/elastic.v2/uritemplates"
+	"github.com/blueshift-labs/elastic.v2/uritemplates"
 )
 
 // ExistsService checks if a document exists.

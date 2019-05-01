@@ -8,7 +8,7 @@ import (
 	"errors"
 	"net/url"
 
-	"gopkg.in/olivere/elastic.v2/uritemplates"
+	"github.com/blueshift-labs/elastic.v2/uritemplates"
 )
 
 // CreateIndexService creates a new index.
